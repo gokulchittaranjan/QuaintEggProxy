@@ -8,6 +8,7 @@ import web;
 
 #from collections import defaultdict;
 #from config import *;
+
 urls = (
 	"/(.*)", "ProxyController",
 
@@ -16,6 +17,7 @@ urls = (
 from QuaintEgg.lib.Util import GenericUtil;
 from QuaintEgg.lib.WebPyCustomizations  import QuaintEggApplication;
 from QuaintEgg.lib.Proxy import Proxy;
+from QuaintEgg.framework.controllers.ControllerUtil import *;
 
 application = None;
 
@@ -36,8 +38,21 @@ app = QuaintEggApplication(urls, globals());
 class ProxyController:
 
 	def GET(self, path):
+		jsonHook();
 		proxy = Proxy("%s/%s" %(proxyAddress, path));
-		res = proxy.response(web.input().items())
+		res = proxy.response(web.input().items(), "get")
+		return json.dumps(res)
+
+	def PUT(self, path):
+		jsonHook();
+		proxy = Proxy("%s/%s" %(proxyAddress, path));
+		res = proxy.response(web.input().items(), "put")
+		return json.dumps(res)
+	
+	def DELETE(self, path):
+		jsonHook();
+		proxy = Proxy("%s/%s" %(proxyAddress, path));
+		res = proxy.response(web.input().items(), "delete")
 		return json.dumps(res)
 
 if __name__=="__main__":
