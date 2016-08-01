@@ -18,6 +18,6 @@ $ python simpleproxy.py --proxy http://youractualserver.com -p 8080
 
 This should start a server that routes all requests to youractualserver.com
 
-Now, you can place your HTML and JS files in the QuaintEggProxy/static directory.
-They should be accessible under localhost:8080/static/
+Now, you can place your HTML and JS files in the `~/qstools/QuaintEggProxy/static` directory.
+They should be accessible under `http://localhost:8080/static/`
 
