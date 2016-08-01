@@ -21,3 +21,4 @@ This should start a server that routes all requests to youractualserver.com
 Now, you can place your HTML and JS files in the `~/qstools/QuaintEggProxy/static` directory.
 They should be accessible under `http://localhost:8080/static/`
 
+Distributed under Apache-2.0 License (see LICENCE for details)
