@@ -41,19 +41,19 @@ class ProxyController:
 		jsonHook();
 		proxy = Proxy("%s/%s" %(proxyAddress, path));
 		res = proxy.response(web.input().items(), "get")
-		return json.dumps(res)
+		return res
 
 	def PUT(self, path):
 		jsonHook();
 		proxy = Proxy("%s/%s" %(proxyAddress, path));
 		res = proxy.response(web.input().items(), "put")
-		return json.dumps(res)
+		return res
 	
 	def DELETE(self, path):
 		jsonHook();
 		proxy = Proxy("%s/%s" %(proxyAddress, path));
 		res = proxy.response(web.input().items(), "delete")
-		return json.dumps(res)
+		return res
 
 if __name__=="__main__":
 	app.run(port=options.port, host=options.host);
